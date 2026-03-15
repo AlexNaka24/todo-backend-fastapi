@@ -1,6 +1,8 @@
 from database import Base
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
 
+
+# This is the model of the users table
 class User(Base):
     __tablename__ = "users"
 
@@ -13,6 +15,8 @@ class User(Base):
     role = Column(String)
     is_active = Column(Boolean, default=True)
 
+
+# This is the model of the todos table, it has a foreign key to the users table
 class Todos(Base):
     __tablename__ = "todos"
 

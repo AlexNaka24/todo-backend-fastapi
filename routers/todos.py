@@ -8,7 +8,11 @@ from starlette import status
 import models
 from schemas.todo_request import TodoRequest
 
-router = APIRouter(prefix="/todos", tags=["todos"])
+# Router for todos
+router = APIRouter(
+    prefix="/todos", 
+    tags=["todos"]
+)
 
 # Creates a new session for each petition and then it closes it
 def get_db():
@@ -17,7 +21,8 @@ def get_db():
         yield db
     finally:
         db.close()
-        
+
+# Dependency for database session      
 db_dependency = Annotated[Session, Depends(get_db)]
 
 # GET all todos

@@ -1,5 +1,6 @@
 from pydantic import BaseModel, Field
 
+# This is the schema for the request body of the POST and PUT endpoints of the users router
 class UserRequest(BaseModel):
     username: str = Field(min_length=3, max_length=40)
     first_name: str = Field(min_length=3, max_length=40)
