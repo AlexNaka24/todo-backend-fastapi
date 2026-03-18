@@ -56,3 +56,14 @@ async def change_password(db: db_dependency, current_user: user_dependency, user
     user.hashed_password = bcrypt_context.hash(user_verification.new_password)
     db.commit()
     return {"message": "Password changed successfully"}
+
+@router.put("/change-phone", status_code=status.HTTP_200_OK)
+async def change_phone_number(db: db_dependency, current_user: user_dependency, phone_number: str = Body(min_length=10, max_length=20, embed=True)):
+    if current_user is None:
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Unauthorized to access this resource")
+    user = db.query(models.User).filter(models.User.id == current_user["id"]).first()
+    if user is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="User not found")
+    user.phone_number = phone_number
+    db.commit()
+    return {"message": "Phone number changed successfully"}

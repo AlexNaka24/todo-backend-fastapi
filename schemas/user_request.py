@@ -9,3 +9,4 @@ class UserRequest(BaseModel):
     password: str = Field(min_length=6)
     role: str = Field(min_length=3, max_length=50)
     is_active: bool = Field(default=True)
+    phone_number: str = Field(min_length=10, max_length=20, default=None)

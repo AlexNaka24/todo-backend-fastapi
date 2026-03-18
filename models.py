@@ -14,6 +14,7 @@ class User(Base):
     hashed_password = Column(String)
     role = Column(String)
     is_active = Column(Boolean, default=True)
+    phone_number = Column(String, nullable=True)
 
 
 # This is the model of the todos table, it has a foreign key to the users table
