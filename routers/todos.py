@@ -6,7 +6,7 @@ from sqlalchemy.orm import Session
 from starlette import status
 import models
 from schemas.todo_request import TodoRequest
-from .auth import get_current_user
+from routers.auth import get_current_user
 
 # Router for todos
 router = APIRouter(

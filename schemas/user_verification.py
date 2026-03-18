@@ -1,5 +1,3 @@
-
-
 from pydantic import BaseModel, Field
 
 # This is the schema for the request body of the POST endpoint of the user verification router

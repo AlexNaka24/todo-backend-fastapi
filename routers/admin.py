@@ -1,5 +1,5 @@
 # IMPORTS
-from fastapi import APIRouter, Depends, HTTPException, status, Path, Query
+from fastapi import APIRouter, Depends, HTTPException, status
 from database import SessionLocal
 import models
 from routers.auth import get_current_user
